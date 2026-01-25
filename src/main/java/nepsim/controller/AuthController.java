@@ -1,55 +1,45 @@
 package nepsim.controller;
 
+import nepsim.model.SimUser;
 import nepsim.pojo.LoginRequest;
 import nepsim.pojo.SignupRequest;
-import nepsim.model.SimUser;
-import nepsim.security.JwtUtil;
 import nepsim.service.SimUserService;
+import nepsim.security.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
-    @Autowired
-    private SimUserService userService;
+    private final SimUserService simUserService;
+    private final JwtUtil jwtUtil;
 
     @Autowired
-    private JwtUtil jwtUtil;
+    public AuthController(SimUserService simUserService, JwtUtil jwtUtil) {
+        this.simUserService = simUserService;
+        this.jwtUtil = jwtUtil;
+    }
 
     // Signup endpoint
     @PostMapping("/signup")
-    public ResponseEntity<?> signup(@RequestBody SignupRequest req) {
+    public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest req) {
 
-        // Create new user from request
-        SimUser user = new SimUser();
-        user.setFirstName(req.getFirstName());
-        user.setLastName(req.getLastName());
-        user.setFatherName(req.getFatherName());
-        user.setMotherName(req.getMotherName());
-        user.setPlace(req.getPlace());
-        user.setSpouse(req.getSpouse());
-        user.setCitizenshipNumber(req.getCitizenshipNumber());
-        user.setDateOfBirth(req.getDateOfBirth());
-        user.setBirthPlace(req.getBirthPlace());
-        user.setPassword(req.getPassword());
+        SimUser savedUser = simUserService.signup(req);
 
-        // Save user and generate SIM number
-        SimUser saved = userService.signup(user);
+        String token = jwtUtil.generateToken(savedUser.getFirstName());
 
-        // Generate JWT token
-        String token = jwtUtil.generateToken(saved.getFirstName());
-
-        // Build JSON response
         Map<String, Object> response = new HashMap<>();
         response.put("message", "Signup successful!");
-        response.put("simNumber", saved.getSimNumber());
         response.put("token", token);
+        response.put("simNumber", savedUser.getSimNumber());
 
         return ResponseEntity.ok(response);
     }
@@ -58,19 +48,34 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest req) {
 
-        return userService.login(req.getFirstName(), req.getPassword())
-                .map(u -> {
-                    String token = jwtUtil.generateToken(u.getFirstName());
+        if (req.getFirstName() == null || req.getPassword() == null) {
+            return ResponseEntity
+                    .badRequest()
+                    .body("Missing firstName or password");
+        }
 
-                    Map<String, Object> response = new HashMap<>();
-                    response.put("message", "Login successful!");
-                    response.put("simNumber", u.getSimNumber());
-                    response.put("token", token);
+        Optional<SimUser> userOpt;
+        try {
+            userOpt = simUserService.login(req.getFirstName(), req.getPassword());
+        } catch (Exception e) {
+            e.printStackTrace(); // this will show precise cause
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Login failed: " + e.getMessage());
+        }
 
-                    return ResponseEntity.ok(response);
-                })
-                .orElse(ResponseEntity.status(401).body(
-                        Map.of("error", "Invalid credentials")
-                ));
+        if (userOpt.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body("Invalid username or password");
+        }
+
+        SimUser user = userOpt.get();
+        String token = jwtUtil.generateToken(user.getFirstName());
+
+        return ResponseEntity.ok(Map.of(
+                "token", token,
+                "simNumber", user.getSimNumber()
+        ));
     }
+
+
 }
