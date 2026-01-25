@@ -1,25 +1,76 @@
 package nepsim.controller;
 
-
-
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
+import nepsim.pojo.LoginRequest;
+import nepsim.pojo.SignupRequest;
+import nepsim.model.SimUser;
+import nepsim.security.JwtUtil;
+import nepsim.service.SimUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
+@RequestMapping("/auth")
 public class AuthController {
 
-    @GetMapping("/protected")
-    public ResponseEntity<String> protectedEndpoint(String token) {
-        // Check token (for demo, assume "secret123" is valid)
-        if (token == null || !token.equals("secret123")) {
-            HttpHeaders headers = new HttpHeaders();
-            headers.add("WWW-Authenticate", "Basic realm=\"Access to protected resource\"");
-            return new ResponseEntity<>("Authentication required", headers, HttpStatus.UNAUTHORIZED);
-        }
+    @Autowired
+    private SimUserService userService;
 
-        return ResponseEntity.ok("Welcome! You are authenticated.");
+    @Autowired
+    private JwtUtil jwtUtil;
+
+    // Signup endpoint
+    @PostMapping("/signup")
+    public ResponseEntity<?> signup(@RequestBody SignupRequest req) {
+
+        // Create new user from request
+        SimUser user = new SimUser();
+        user.setFirstName(req.getFirstName());
+        user.setLastName(req.getLastName());
+        user.setFatherName(req.getFatherName());
+        user.setMotherName(req.getMotherName());
+        user.setPlace(req.getPlace());
+        user.setSpouse(req.getSpouse());
+        user.setCitizenshipNumber(req.getCitizenshipNumber());
+        user.setDateOfBirth(req.getDateOfBirth());
+        user.setBirthPlace(req.getBirthPlace());
+        user.setPassword(req.getPassword());
+
+        // Save user and generate SIM number
+        SimUser saved = userService.signup(user);
+
+        // Generate JWT token
+        String token = jwtUtil.generateToken(saved.getFirstName());
+
+        // Build JSON response
+        Map<String, Object> response = new HashMap<>();
+        response.put("message", "Signup successful!");
+        response.put("simNumber", saved.getSimNumber());
+        response.put("token", token);
+
+        return ResponseEntity.ok(response);
+    }
+
+    // Login endpoint
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest req) {
+
+        return userService.login(req.getFirstName(), req.getPassword())
+                .map(u -> {
+                    String token = jwtUtil.generateToken(u.getFirstName());
+
+                    Map<String, Object> response = new HashMap<>();
+                    response.put("message", "Login successful!");
+                    response.put("simNumber", u.getSimNumber());
+                    response.put("token", token);
+
+                    return ResponseEntity.ok(response);
+                })
+                .orElse(ResponseEntity.status(401).body(
+                        Map.of("error", "Invalid credentials")
+                ));
     }
 }
