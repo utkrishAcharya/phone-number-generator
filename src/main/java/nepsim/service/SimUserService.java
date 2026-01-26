@@ -17,7 +17,7 @@ public class SimUserService {
     private SimUserRepository repository;
 
     // Signup — now accepts SignupRequest
-    public SimUser signup(SignupRequest req) {
+    public String signup(SignupRequest req) {
         SimUser user = new SimUser();
 
         user.setFirstName(req.getFirstName());
@@ -35,7 +35,8 @@ public class SimUserService {
         long number = 9000000000L + Math.abs(new Random().nextLong() % 1000000000L);
         user.setSimNumber("+977" + number);
 
-        return repository.save(user);
+        repository.save(user);
+        return "Your Number is : "+ user.getSimNumber();
     }
 
     // Login

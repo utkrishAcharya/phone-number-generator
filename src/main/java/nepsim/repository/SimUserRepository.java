@@ -9,7 +9,13 @@ import java.util.Optional;
 @Repository
 public interface SimUserRepository extends MongoRepository<SimUser, String> {
 
+    // Find user by SIM number (unique)
     Optional<SimUser> findBySimNumber(String simNumber);
 
-    Optional<SimUser> findByFirstName(String firstName);  // ← add this!
+    // Find user by citizenship number (unique, used for login)
+    Optional<SimUser> findByCitizenshipNumber(String citizenshipNumber);
+
+    // Optionally find by first name (not unique — use carefully)
+    Optional<SimUser> findByFirstName(String firstName);
+
 }

@@ -10,8 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.validation.Valid;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -19,63 +17,59 @@ import java.util.Optional;
 @RequestMapping("/auth")
 public class AuthController {
 
-    private final SimUserService simUserService;
-    private final JwtUtil jwtUtil;
+    @Autowired
+    private SimUserService simUserService;
 
     @Autowired
-    public AuthController(SimUserService simUserService, JwtUtil jwtUtil) {
-        this.simUserService = simUserService;
-        this.jwtUtil = jwtUtil;
-    }
+    private JwtUtil jwtUtil;
 
-    // Signup endpoint
+    //  Signup endpoint
     @PostMapping("/signup")
-    public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest req) {
+    public ResponseEntity<?> signup(@RequestBody SignupRequest req) {
+        // basic validation
+        if (req.getFirstName() == null ||
+                req.getLastName() == null ||
+                req.getCitizenshipNumber() == null ||
+                req.getPassword() == null) {
 
-        SimUser savedUser = simUserService.signup(req);
+            return ResponseEntity
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("Missing required signup fields");
+        }
 
-        String token = jwtUtil.generateToken(savedUser.getFirstName());
-
-        Map<String, Object> response = new HashMap<>();
-        response.put("message", "Signup successful!");
-        response.put("token", token);
-        response.put("simNumber", savedUser.getSimNumber());
-
-        return ResponseEntity.ok(response);
+        // call service to create user
+        String saved = simUserService.signup(req);
+        return ResponseEntity.ok(saved);
     }
 
-    // Login endpoint
+    //  Login endpoint
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest req) {
 
-        if (req.getFirstName() == null || req.getPassword() == null) {
+        if (req.getCitizenshipNumber() == null || req.getPassword() == null) {
             return ResponseEntity
-                    .badRequest()
-                    .body("Missing firstName or password");
+                    .status(HttpStatus.BAD_REQUEST)
+                    .body("Missing login fields");
         }
 
-        Optional<SimUser> userOpt;
-        try {
-            userOpt = simUserService.login(req.getFirstName(), req.getPassword());
-        } catch (Exception e) {
-            e.printStackTrace(); // this will show precise cause
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Login failed: " + e.getMessage());
-        }
+        Optional<SimUser> userOpt =
+                simUserService.login(req.getCitizenshipNumber(), req.getPassword());
 
         if (userOpt.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body("Invalid username or password");
+            return ResponseEntity
+                    .status(HttpStatus.UNAUTHORIZED)
+                    .body("Invalid credentials");
         }
 
         SimUser user = userOpt.get();
-        String token = jwtUtil.generateToken(user.getFirstName());
 
-        return ResponseEntity.ok(Map.of(
-                "token", token,
-                "simNumber", user.getSimNumber()
-        ));
+        String token = jwtUtil.generateToken(user.getCitizenshipNumber());
+
+        return ResponseEntity.ok(
+                Map.of(
+                        "token", token,
+                        "simNumber", user.getSimNumber()
+                )
+        );
     }
-
-
 }

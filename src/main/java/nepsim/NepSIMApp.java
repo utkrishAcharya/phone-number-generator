@@ -1,5 +1,6 @@
 package nepsim;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,4 +11,5 @@ public class NepSIMApp {
         SpringApplication.run(NepSIMApp.class, args);
         System.out.println("NEPSIM Application Started!");
     }
+
 }

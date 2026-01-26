@@ -19,14 +19,12 @@ public class AuthService {
     @Autowired
     public AuthService(SimUserRepository userRepository) {
         this.userRepository = userRepository;
-        this.passwordEncoder = new BCryptPasswordEncoder();  // secure hashing
+        this.passwordEncoder = new BCryptPasswordEncoder(); // bcrypt hashing
     }
 
+    // Signup — store bcrypt hashed password
     public SimUser signup(SignupRequest signupRequest) {
-
-        // Create a new user entity
         SimUser user = new SimUser();
-
         user.setFirstName(signupRequest.getFirstName());
         user.setLastName(signupRequest.getLastName());
         user.setFatherName(signupRequest.getFatherName());
@@ -37,26 +35,27 @@ public class AuthService {
         user.setDateOfBirth(signupRequest.getDateOfBirth());
         user.setBirthPlace(signupRequest.getBirthPlace());
 
-        // Hash the password for security
-        String hashed = passwordEncoder.encode(signupRequest.getPassword());
-        user.setPassword(hashed);
+        // **hash the password** before storing
+        user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 
         return userRepository.save(user);
     }
 
+    // Login — find user by citizenship number (unique) and match hashed password
     public Optional<SimUser> login(LoginRequest loginRequest) {
 
-        // Find user by firstName (or you can change to username/email)
-        Optional<SimUser> userOpt = userRepository.findByFirstName(loginRequest.getFirstName());
+        // find user by unique field
+        Optional<SimUser> userOpt =
+                userRepository.findByCitizenshipNumber(loginRequest.getCitizenshipNumber());
 
         if (userOpt.isPresent()) {
             SimUser user = userOpt.get();
 
-            // Check hashed password
+            // check hashed password
             if (passwordEncoder.matches(loginRequest.getPassword(), user.getPassword())) {
                 return Optional.of(user);
             }
         }
-        return Optional.empty();
+        return Optional.empty(); // login failed
     }
 }

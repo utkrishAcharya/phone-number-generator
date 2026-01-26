@@ -27,7 +27,7 @@ public class SimUserController {
     // SIGNUP — new user
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest signupRequest) {
-        SimUser saved = simUserService.signup(signupRequest);
+        String saved = simUserService.signup(signupRequest);
 
         return ResponseEntity.ok(saved);
     }
@@ -37,16 +37,18 @@ public class SimUserController {
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest loginRequest) {
 
         Optional<SimUser> userOpt = simUserService
-                .login(loginRequest.getFirstName(), loginRequest.getPassword());
+                .login(loginRequest.getCitizenshipNumber(), loginRequest.getPassword());
 
         if (userOpt.isEmpty()) {
             return ResponseEntity
                     .status(HttpStatus.UNAUTHORIZED)
-                    .body("Invalid credentials");
+                    .body("Invalid citizenship number or password");
         }
 
-        return ResponseEntity.ok(userOpt.get());
+        SimUser user = userOpt.get();
+        return ResponseEntity.ok(user);
     }
+
 
     // GET all users
     @GetMapping

@@ -8,6 +8,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.http.HttpMethod.POST;
+
 @Configuration
 public class SecurityConfig {
 
@@ -21,29 +23,31 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                // Disable CSRF for REST APIs
+                // Disable CSRF so POST, PUT, DELETE do not require a CSRF token
                 .csrf(csrf -> csrf.disable())
 
-                // We don’t need default form login
-                .formLogin(form -> form.disable())
-
-                // Disable default logout (optional)
-                .logout(logout -> logout.disable())
-
-                // Disable session creation — JWT is stateless
+                //  Stateless — we use JWT instead of session
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 )
 
-                // Configure public vs protected endpoints
+                //  Public vs Protected routes
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/signup", "/auth/login").permitAll()
-                        .requestMatchers("/api/simusers/signup", "/api/simusers/login").permitAll()
+
+                        // Allow public access to signup and login POSTs
+                        .requestMatchers(POST, "/auth/signup").permitAll()
+                        .requestMatchers(POST, "/auth/login").permitAll()
+                        .requestMatchers(POST, "/api/simusers/signup").permitAll()
+                        .requestMatchers(POST, "/api/simusers/login").permitAll()
+
+                        // Allow error path so Spring doesn’t block error responses
                         .requestMatchers("/error").permitAll()
+
+                        // Everything else requires a valid JWT
                         .anyRequest().authenticated()
                 )
 
-                // Add your custom JWT filter before Spring's authentication
+                // Add JWT filter before the UsernamePasswordAuthenticationFilter
                 .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
