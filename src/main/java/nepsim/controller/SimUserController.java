@@ -51,7 +51,7 @@ public class SimUserController {
 
 
     // GET all users
-    @GetMapping
+    @GetMapping ("/users")
     public ResponseEntity<List<SimUser>> getAllUsers() {
         List<SimUser> users = simUserService.findAllUsers();
         return ResponseEntity.ok(users);
