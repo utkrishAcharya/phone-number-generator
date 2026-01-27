@@ -35,7 +35,7 @@ public class AuthService {
         user.setDateOfBirth(signupRequest.getDateOfBirth());
         user.setBirthPlace(signupRequest.getBirthPlace());
 
-        // **hash the password** before storing
+        // hash the password** before storing
         user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 
         return userRepository.save(user);

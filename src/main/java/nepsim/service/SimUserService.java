@@ -4,6 +4,8 @@ import nepsim.model.SimUser;
 import nepsim.pojo.SignupRequest;
 import nepsim.repository.SimUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,10 +18,15 @@ public class SimUserService {
     @Autowired
     private SimUserRepository repository;
 
-    // Signup — now accepts SignupRequest
-    public String signup(SignupRequest req) {
-        SimUser user = new SimUser();
+    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
+    // Signup
+    public SimUser signup(SignupRequest req) {
+
+        // Hash password
+        String hashedPass = passwordEncoder.encode(req.getPassword());
+
+        SimUser user = new SimUser();
         user.setFirstName(req.getFirstName());
         user.setLastName(req.getLastName());
         user.setFatherName(req.getFatherName());
@@ -29,22 +36,31 @@ public class SimUserService {
         user.setCitizenshipNumber(req.getCitizenshipNumber());
         user.setDateOfBirth(req.getDateOfBirth());
         user.setBirthPlace(req.getBirthPlace());
-        user.setPassword(req.getPassword());
+        user.setPassword(hashedPass);
 
-        // Generate Nepal SIM
+        // Generate SIM number
         long number = 9000000000L + Math.abs(new Random().nextLong() % 1000000000L);
         user.setSimNumber("+977" + number);
 
-        repository.save(user);
-        return "Your Number is : "+ user.getSimNumber();
+        return repository.save(user);
     }
 
     // Login
-    public Optional<SimUser> login(String firstName, String password) {
-        Optional<SimUser> user = repository.findByFirstName(firstName);
-        if (user.isPresent() && user.get().getPassword().equals(password)) {
-            return user;
+    public Optional<SimUser> login(String citizenshipNumber, String rawPassword) {
+
+        Optional<SimUser> userOpt =
+                repository.findByCitizenshipNumber(citizenshipNumber);
+
+        if (userOpt.isEmpty()) {
+            return Optional.empty();
         }
+
+        SimUser user = userOpt.get();
+
+        if (passwordEncoder.matches(rawPassword, user.getPassword())) {
+            return Optional.of(user);
+        }
+
         return Optional.empty();
     }
 
@@ -60,6 +76,7 @@ public class SimUserService {
         Optional<SimUser> existing = repository.findById(id);
         if (existing.isPresent()) {
             SimUser user = existing.get();
+
             user.setFirstName(simUser.getFirstName());
             user.setLastName(simUser.getLastName());
             user.setFatherName(simUser.getFatherName());
@@ -69,7 +86,12 @@ public class SimUserService {
             user.setCitizenshipNumber(simUser.getCitizenshipNumber());
             user.setDateOfBirth(simUser.getDateOfBirth());
             user.setBirthPlace(simUser.getBirthPlace());
-            user.setPassword(simUser.getPassword());
+
+            // Hash new password if changed
+            if (simUser.getPassword() != null && !simUser.getPassword().isEmpty()) {
+                user.setPassword(passwordEncoder.encode(simUser.getPassword()));
+            }
+
             return repository.save(user);
         }
         return null;
@@ -81,5 +103,9 @@ public class SimUserService {
             return true;
         }
         return false;
+    }
+
+    public Optional<SimUser> findByCitizenshipNumber(String citizenshipNumber) {
+        return Optional.empty();
     }
 }
