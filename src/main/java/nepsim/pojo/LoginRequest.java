@@ -1,17 +1,12 @@
 package nepsim.pojo;
 
-import jakarta.validation.constraints.NotBlank;
-
 public class LoginRequest {
 
-    @NotBlank(message = "Citizenship number is required")
-    private String citizenshipNumber;
-
-    @NotBlank(message = "Password is required")
+    private String phoneNumber;
     private String password;
 
-    public String getCitizenshipNumber() { return citizenshipNumber; }
-    public void setCitizenshipNumber(String citizenshipNumber) { this.citizenshipNumber = citizenshipNumber; }
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }

@@ -45,24 +45,16 @@ public class SimUserService {
         return repository.save(user);
     }
 
-    // Login
-    public Optional<SimUser> login(String citizenshipNumber, String rawPassword) {
+    // Login — lookup by phone number and password
+    public Optional<SimUser> loginByPhone(String phone, String password) {
+        Optional<SimUser> userOpt = repository.findBySimNumber(phone);
 
-        Optional<SimUser> userOpt =
-                repository.findByCitizenshipNumber(citizenshipNumber);
-
-        if (userOpt.isEmpty()) {
-            return Optional.empty();
+        if (userOpt.isPresent() && userOpt.get().getPassword().equals(password)) {
+            return userOpt;
         }
-
-        SimUser user = userOpt.get();
-
-        if (passwordEncoder.matches(rawPassword, user.getPassword())) {
-            return Optional.of(user);
-        }
-
         return Optional.empty();
     }
+
 
     public List<SimUser> findAllUsers() {
         return repository.findAll();
