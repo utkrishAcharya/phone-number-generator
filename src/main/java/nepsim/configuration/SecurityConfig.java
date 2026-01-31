@@ -14,9 +14,11 @@ public class SecurityConfig {
         http
                 // disable CSRF (otherwise POST requests like login/signup will be blocked) :contentReference[oaicite:3]{index=3}
                 .csrf(csrf -> csrf.disable())
+            
 
                 // permit all requests (so nothing requires authentication yet) :contentReference[oaicite:4]{index=4}
                 .authorizeHttpRequests(auth -> auth
+                                       
                         .anyRequest().permitAll()
                 );
 
