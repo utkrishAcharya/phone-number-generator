@@ -36,7 +36,8 @@ public class AdminController {
     // Update specific user
     @PutMapping("/users/{id}")
     public ResponseEntity<?> updateUser(@PathVariable String id,
-                                        @RequestBody SimUser simUser) {
+                                        
+        @RequestBody SimUser simUser) {
         SimUser updated = simUserService.updateUser(id, simUser);
 
         if (updated == null) {
