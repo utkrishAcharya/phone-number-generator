@@ -35,9 +35,11 @@ public class AdminController {
 
     // Update specific user
     @PutMapping("/users/{id}")
+    
     public ResponseEntity<?> updateUser(@PathVariable String id,
                                         
         @RequestBody SimUser simUser) {
+        
         SimUser updated = simUserService.updateUser(id, simUser);
 
         if (updated == null) {
@@ -52,13 +54,16 @@ public class AdminController {
 
     // Delete user
     @DeleteMapping("/users/{id}")
+    
     public ResponseEntity<?> deleteUser(@PathVariable String id) {
+        
         boolean deleted = simUserService.deleteUser(id);
 
         if (!deleted) {
             return ResponseEntity
+                
                     .status(HttpStatus.NOT_FOUND)
-                    .body(Map.of("message", "User not found"));
+                .body(Map.of("message", "User not found"));
         }
 
         return ResponseEntity.ok(Map.of("message", "User deleted successfully"));
