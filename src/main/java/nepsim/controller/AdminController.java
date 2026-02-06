@@ -47,7 +47,9 @@ public class AdminController {
 
         if (updated == null) {
             // Return 404 if not found
+            
             return ResponseEntity
+                
                     .status(HttpStatus.NOT_FOUND)
                     .body(Map.of("message", "User not found"));
         }
@@ -63,6 +65,7 @@ public class AdminController {
         boolean deleted = simUserService.deleteUser(id);
 
         if (!deleted) {
+            
             return ResponseEntity
                 
                     .status(HttpStatus.NOT_FOUND)
