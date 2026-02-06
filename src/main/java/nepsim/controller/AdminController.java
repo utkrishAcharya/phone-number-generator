@@ -28,8 +28,11 @@ public class AdminController {
     // Get all users (admin only)
     
     @GetMapping("/users")
+    
     public ResponseEntity<List<SimUser>> getAllUsers() {
+        
         List<SimUser> users = simUserService.findAllUsers();
+        
         return ResponseEntity.ok(users);
     }
 
