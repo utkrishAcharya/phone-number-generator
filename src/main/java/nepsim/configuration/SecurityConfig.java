@@ -12,11 +12,13 @@ public class SecurityConfig {
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-                // disable CSRF (otherwise POST requests like login/signup will be blocked) :contentReference[oaicite:3]{index=3}
+                // disable CSRF (otherwise POST requests like login/signup will be blocked) 
+            
                 .csrf(csrf -> csrf.disable())
             
 
-                // permit all requests (so nothing requires authentication yet) :contentReference[oaicite:4]{index=4}
+                // permit all requests (so nothing requires authentication yet) 
+            
                 .authorizeHttpRequests(auth -> auth
                                        
                      .anyRequest().permitAll()
