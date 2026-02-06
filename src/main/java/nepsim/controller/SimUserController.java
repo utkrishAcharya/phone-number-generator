@@ -22,35 +22,45 @@ public class SimUserController {
 
     @Autowired
     public SimUserController(SimUserService simUserService) {
+        
         this.simUserService = simUserService;
     }
 
     // SIGNUP — new user
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest signupRequest) {
+        
         // (your signup logic here — already working)
+        
         Optional<SimUser> existingUser =
                 simUserService.findByCitizenshipNumber(signupRequest.getCitizenshipNumber());
 
         if (existingUser.isPresent()) {
+            
             return ResponseEntity
                     .status(HttpStatus.CONFLICT)
                     .body(Map.of("message", "User already exists"));
         }
 
         SimUser newUser = simUserService.signup(signupRequest);
+        
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(Map.of("simNumber", newUser.getSimNumber()));
     }
 
     // LOGIN — user login (by phone number + password)
+    
     @PostMapping("/login")
+    
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        
         Optional<SimUser> userOpt =
+            
                 simUserService.loginByPhone(loginRequest.getPhoneNumber(), loginRequest.getPassword());
 
         if (userOpt.isEmpty()) {
+            
             return ResponseEntity
                     .status(HttpStatus.UNAUTHORIZED)
                     .body("Invalid phone number or password");
