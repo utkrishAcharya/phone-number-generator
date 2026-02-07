@@ -39,9 +39,13 @@ public class SimUserService {
         user.setPlace(req.getPlace());
         
         user.setSpouse(req.getSpouse());
+        
         user.setCitizenshipNumber(req.getCitizenshipNumber());
+        
         user.setDateOfBirth(req.getDateOfBirth());
+        
         user.setBirthPlace(req.getBirthPlace());
+        
         user.setPassword(hashedPass);
 
         // Generate SIM number
@@ -53,6 +57,7 @@ public class SimUserService {
 
     // Login — lookup by phone number and password
     public Optional<SimUser> loginByPhone(String phone, String password) {
+        
         Optional<SimUser> userOpt = repository.findBySimNumber(phone);
 
         if (userOpt.isPresent() && userOpt.get().getPassword().equals(password)) {
