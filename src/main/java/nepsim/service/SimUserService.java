@@ -27,11 +27,17 @@ public class SimUserService {
         String hashedPass = passwordEncoder.encode(req.getPassword());
 
         SimUser user = new SimUser();
+        
         user.setFirstName(req.getFirstName());
+        
         user.setLastName(req.getLastName());
+        
         user.setFatherName(req.getFatherName());
+        
         user.setMotherName(req.getMotherName());
+        
         user.setPlace(req.getPlace());
+        
         user.setSpouse(req.getSpouse());
         user.setCitizenshipNumber(req.getCitizenshipNumber());
         user.setDateOfBirth(req.getDateOfBirth());
