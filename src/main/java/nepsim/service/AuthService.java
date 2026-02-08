@@ -14,11 +14,14 @@ import java.util.Optional;
 public class AuthService {
 
     private final SimUserRepository userRepository;
+    
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     public AuthService(SimUserRepository userRepository) {
+        
         this.userRepository = userRepository;
+        
         this.passwordEncoder = new BCryptPasswordEncoder(); // BCrypt for secure passwords
     }
 
