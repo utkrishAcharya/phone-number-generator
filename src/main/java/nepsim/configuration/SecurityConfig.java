@@ -11,19 +11,16 @@ public class SecurityConfig {
     @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-        http
+       
                 // disable CSRF (otherwise POST requests like login/signup will be blocked) 
-            
-                .csrf(csrf -> csrf.disable())
+            .csrf(csrf -> csrf.disable())
             
 
                 // permit all requests (so nothing requires authentication yet) 
-            
-                .authorizeHttpRequests(auth -> auth
-                                       
-                     .anyRequest().permitAll()
+            .authorizeHttpRequests(auth -> auth
+            .anyRequest().permitAll()
+                                   
                 );
-
         return http.build();
     }
 }
