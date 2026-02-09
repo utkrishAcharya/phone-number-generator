@@ -56,10 +56,13 @@ public class AuthService {
 
     // in AuthService
     public Optional<SimUser> loginByPhone(String phone, String password) {
+        
         Optional<SimUser> userOpt = userRepository.findBySimNumber(phone);
 
         if (userOpt.isPresent() &&
+            
                 passwordEncoder.matches(password, userOpt.get().getPassword())) {
+            
             return userOpt;
         }
         return Optional.empty();
