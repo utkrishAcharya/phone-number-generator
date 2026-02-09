@@ -35,9 +35,13 @@ public class AuthService {
         user.setLastName(signupRequest.getLastName());
         
         user.setFatherName(signupRequest.getFatherName());
+        
         user.setMotherName(signupRequest.getMotherName());
+        
         user.setPlace(signupRequest.getPlace());
+        
         user.setSpouse(signupRequest.getSpouse());
+        
         user.setCitizenshipNumber(signupRequest.getCitizenshipNumber());
         user.setDateOfBirth(signupRequest.getDateOfBirth());
         user.setBirthPlace(signupRequest.getBirthPlace());
