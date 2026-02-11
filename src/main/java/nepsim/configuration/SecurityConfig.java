@@ -18,9 +18,8 @@ public class SecurityConfig {
 
                 // permit all requests (so nothing requires authentication yet) 
             .authorizeHttpRequests(auth -> auth
-            .anyRequest().permitAll()
-                                   
-                );
+            .anyRequest().permitAll();                        
+            );
         return http.build();
     }
 }
