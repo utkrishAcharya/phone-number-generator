@@ -25,21 +25,27 @@ public class SignupRequest {
 
     // Getters and setters
     public String getFirstName() { return firstName; }
+    
     public void setFirstName(String firstName) { this.firstName = firstName; }
 
     public String getLastName() { return lastName; }
+    
     public void setLastName(String lastName) { this.lastName = lastName; }
 
     public String getCitizenshipNumber() { return citizenshipNumber; }
+    
     public void setCitizenshipNumber(String citizenshipNumber) { this.citizenshipNumber = citizenshipNumber; }
 
     public String getPassword() { return password; }
+    
     public void setPassword(String password) { this.password = password; }
 
     public String getFatherName() { return fatherName; }
+    
     public void setFatherName(String fatherName) { this.fatherName = fatherName; }
 
     public String getMotherName() { return motherName; }
+    
     public void setMotherName(String motherName) { this.motherName = motherName; }
 
     public String getPlace() { return place; }
