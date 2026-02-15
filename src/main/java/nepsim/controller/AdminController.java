@@ -19,7 +19,6 @@ public class AdminController {
     private final SimUserService simUserService;
 
     @Autowired
-    
     public AdminController(SimUserService simUserService) {
         
         this.simUserService = simUserService;
