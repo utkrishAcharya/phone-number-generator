@@ -29,7 +29,6 @@ public class AdminController {
     
     public ResponseEntity<List<SimUser>> getAllUsers() {
         List<SimUser> users = simUserService.findAllUsers();
-        
         return ResponseEntity.ok(users);
     }
 
