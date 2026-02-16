@@ -24,8 +24,7 @@ public class AdminController {
     }
 
     // Get all users (admin only)
-    
-    @GetMapping("/users")
+     @GetMapping("/users")
     
     public ResponseEntity<List<SimUser>> getAllUsers() {
         List<SimUser> users = simUserService.findAllUsers();
