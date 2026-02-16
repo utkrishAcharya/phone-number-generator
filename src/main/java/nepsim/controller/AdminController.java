@@ -13,8 +13,7 @@ import java.util.Map;
 @RestController
     
 @RequestMapping("/admin")
-    
-public class AdminController {
+    public class AdminController {
 
     private final SimUserService simUserService;
 
