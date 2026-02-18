@@ -53,10 +53,8 @@ public class SimUserController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         
-        Optional<SimUser> userOpt =
+   Optional<SimUser> userOpt = simUserService.loginByPhone(loginRequest.getPhoneNumber(), loginRequest.getPassword());
             
-                simUserService.loginByPhone(loginRequest.getPhoneNumber(), loginRequest.getPassword());
-
         if (userOpt.isEmpty()) {
             
             return ResponseEntity
