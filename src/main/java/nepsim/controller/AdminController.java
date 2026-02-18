@@ -49,7 +49,6 @@ import java.util.Map;
 
     // Delete user
     @DeleteMapping("/users/{id}")
-    
     public ResponseEntity<?> deleteUser(@PathVariable String id) {
         boolean deleted = simUserService.deleteUser(id);
 
