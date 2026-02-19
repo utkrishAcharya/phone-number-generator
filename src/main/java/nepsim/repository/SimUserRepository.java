@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-    
-public interface SimUserRepository extends MongoRepository<SimUser, String> {
+    public interface SimUserRepository extends MongoRepository<SimUser, String> {
 
     // Find user by SIM number (unique)
     Optional<SimUser> findBySimNumber(String simNumber);
