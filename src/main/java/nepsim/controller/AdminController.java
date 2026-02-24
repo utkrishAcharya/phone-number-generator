@@ -1,5 +1,4 @@
 package nepsim.controller;
-
 import nepsim.model.SimUser;
 import nepsim.service.SimUserService;
 import org.springframework.beans.factory.annotation.Autowired;
