@@ -17,6 +17,7 @@ import java.util.Map;
     @Autowired
     public AdminController(SimUserService simUserService) {
         this.simUserService = simUserService;
+        
     }
 
     // Get all users (admin only)
