@@ -12,10 +12,12 @@ import java.util.Map;
     
 @RequestMapping("/admin")
     public class AdminController {
+        
   private final SimUserService simUserService;
 
     @Autowired
     public AdminController(SimUserService simUserService) {
+        
         this.simUserService = simUserService;
         
     }
@@ -23,6 +25,7 @@ import java.util.Map;
     // Get all users (admin only)
      @GetMapping("/users")
      public ResponseEntity<List<SimUser>> getAllUsers() {
+         
         List<SimUser> users = simUserService.findAllUsers();
         return ResponseEntity.ok(users);
     }
