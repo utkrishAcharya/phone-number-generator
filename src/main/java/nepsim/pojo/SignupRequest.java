@@ -1,5 +1,4 @@
 package nepsim.pojo;
-
 import jakarta.validation.constraints.NotBlank;
 
 public class SignupRequest {
@@ -15,8 +14,7 @@ public class SignupRequest {
 
     @NotBlank(message = "Password is required")
     private String password;
-
-    private String fatherName;
+   private String fatherName;
     private String motherName;
     private String place;
     private String spouse;
