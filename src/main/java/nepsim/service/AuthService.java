@@ -1,5 +1,4 @@
 package nepsim.service;
-
 import nepsim.model.SimUser;
 import nepsim.pojo.LoginRequest;
 import nepsim.pojo.SignupRequest;
@@ -20,10 +19,10 @@ public class AuthService {
     @Autowired
     public AuthService(SimUserRepository userRepository) {
         
-        this.userRepository = userRepository;
+    this.userRepository = userRepository;
         
-        this.passwordEncoder = new BCryptPasswordEncoder(); // BCrypt for secure passwords
-    }
+    this.passwordEncoder = new BCryptPasswordEncoder(); // BCrypt for secure passwords
+      }
 
     // Signup — hash password and save
     public SimUser signup(SignupRequest signupRequest) {
