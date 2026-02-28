@@ -9,6 +9,4 @@ public class NepSIMApp {
   
         SpringApplication.run(NepSIMApp.class, args);
         System.out.println("NEPSIM Application Started!");
-    }
-
-}
+    }}
