@@ -47,14 +47,20 @@ public class SignupRequest {
     public void setMotherName(String motherName) { this.motherName = motherName; }
 
     public String getPlace() { return place; }
+    
     public void setPlace(String place) { this.place = place; }
 
     public String getSpouse() { return spouse; }
+    
     public void setSpouse(String spouse) { this.spouse = spouse; }
 
     public String getDateOfBirth() { return dateOfBirth; }
+    
     public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
 
     public String getBirthPlace() { return birthPlace; }
+    
     public void setBirthPlace(String birthPlace) { this.birthPlace = birthPlace; }
+    
 }
+
