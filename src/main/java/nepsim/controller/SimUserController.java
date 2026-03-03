@@ -31,11 +31,10 @@ private final SimUserService simUserService;
 
                 
         if (existingUser.isPresent()) {
-            
-            return ResponseEntity
+                return ResponseEntity
                     .status(HttpStatus.CONFLICT)
                     .body(Map.of("message", "User already exists"));
-        }
+                }
 
         SimUser newUser = simUserService.signup(signupRequest);
         
