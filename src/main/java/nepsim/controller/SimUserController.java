@@ -1,5 +1,4 @@
 package nepsim.controller;
-
 import nepsim.model.SimUser;
 import nepsim.pojo.LoginRequest;
 import nepsim.pojo.SignupRequest;
@@ -8,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Map;
@@ -17,12 +15,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/simusers")
 public class SimUserController {
-
-    private final SimUserService simUserService;
+private final SimUserService simUserService;
 
     @Autowired
     public SimUserController(SimUserService simUserService) {
-        
         this.simUserService = simUserService;
     }
 
