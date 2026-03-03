@@ -65,8 +65,11 @@ private final SimUserService simUserService;
     // GET all users
     @GetMapping
     public ResponseEntity<List<SimUser>> getAllUsers() {
+        
         List<SimUser> users = simUserService.findAllUsers();
+        
         users.forEach(u -> u.setPassword(null));
+        
         return ResponseEntity.ok(users);
     }
 
