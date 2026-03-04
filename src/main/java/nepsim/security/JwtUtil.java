@@ -47,7 +47,9 @@ public class JwtUtil {
                     .getPayload(); // get the claims (body)
 
             return claims.getSubject();
+            
         } catch (Exception e) {
+            
             return null; // invalid token
         }   }
 
