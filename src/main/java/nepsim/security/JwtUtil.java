@@ -49,8 +49,7 @@ public class JwtUtil {
             return claims.getSubject();
         } catch (Exception e) {
             return null; // invalid token
-        }
-    }
+        }   }
 
     /**
      * Validate token signature and expiration
