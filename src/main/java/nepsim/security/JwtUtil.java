@@ -56,6 +56,7 @@ public class JwtUtil {
      * Validate token signature and expiration
      */
     public boolean validateToken(String token) {
+        
         try {
             Claims claims = Jwts.parser()
                     .verifyWith(key)
