@@ -80,8 +80,7 @@
         </dependency>
 
     </dependencies>
-
-    <build>
+   <build>
         <plugins>
             <!-- Spring Boot Maven plugin -->
             <plugin>
