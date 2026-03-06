@@ -15,6 +15,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/simusers")
 public class SimUserController {
+    
 private final SimUserService simUserService;
 
     @Autowired
