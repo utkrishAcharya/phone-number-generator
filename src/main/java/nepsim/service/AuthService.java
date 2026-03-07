@@ -65,6 +65,4 @@ public class AuthService {
             return userOpt;
         }
         return Optional.empty();
-    }
-
-}
+    }}
