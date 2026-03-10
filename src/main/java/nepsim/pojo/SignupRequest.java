@@ -63,7 +63,7 @@ public class SignupRequest {
 
     public String getBirthPlace() { return birthPlace; }
     
-     public void setBirthPlace(String birthPlace) { this.birthPlace = birthPlace; }
+    public void setBirthPlace(String birthPlace) { this.birthPlace = birthPlace; }
     
-}
+    }
 
