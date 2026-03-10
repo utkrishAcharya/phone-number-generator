@@ -16,9 +16,9 @@ import java.util.Optional;
 @RequestMapping("/api/simusers")
 public class SimUserController {
     
-private final SimUserService simUserService;
-
-    @Autowired
+    private final SimUserService simUserService;
+    
+   @Autowired
     public SimUserController(SimUserService simUserService) {
         this.simUserService = simUserService;
     }
