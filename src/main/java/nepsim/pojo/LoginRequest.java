@@ -1,6 +1,7 @@
 package nepsim.pojo;
 
 public class LoginRequest {
+    
     private String phoneNumber;
     private String password;
     
@@ -11,4 +12,5 @@ public class LoginRequest {
 public String getPassword() { return password; }
     
     public void setPassword(String password) { this.password = password; }
-}
+    
+   }
