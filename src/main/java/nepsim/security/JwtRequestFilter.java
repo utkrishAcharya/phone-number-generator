@@ -17,6 +17,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
     public JwtRequestFilter(JwtUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
+        
     }
 
     @Override
