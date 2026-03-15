@@ -103,6 +103,7 @@ public class SimUserController {
         updated.setPassword(null);
         return ResponseEntity.ok(updated);
     }
+    
 
     // DELETE user by ID
     @DeleteMapping("/{id}")
