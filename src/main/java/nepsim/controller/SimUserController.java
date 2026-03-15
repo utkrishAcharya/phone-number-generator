@@ -23,6 +23,7 @@ public class SimUserController {
     public SimUserController(SimUserService simUserService) {
         this.simUserService = simUserService;
     }
+    
 
     // SIGNUP — new user
     @PostMapping("/signup")
