@@ -37,6 +37,7 @@ import java.util.Map;
     public ResponseEntity<?> updateUser(@PathVariable String id,
                                         
                                         
+                                        
         @RequestBody SimUser simUser) {
          SimUser updated = simUserService.updateUser(id, simUser);
 
