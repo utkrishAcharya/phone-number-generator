@@ -14,6 +14,7 @@ import java.util.Map;
     public class AdminController {
         
   private final SimUserService simUserService;
+        
 
     @Autowired
     public AdminController(SimUserService simUserService) {
