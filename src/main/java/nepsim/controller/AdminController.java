@@ -28,6 +28,7 @@ import java.util.Map;
      @GetMapping("/users")
      public ResponseEntity<List<SimUser>> getAllUsers() {
          
+         
         List<SimUser> users = simUserService.findAllUsers();
         return ResponseEntity.ok(users);
          
