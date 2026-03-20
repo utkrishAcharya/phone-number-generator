@@ -54,6 +54,7 @@ public class AuthService {
 
         return userRepository.save(user);
     }
+    
 
     // in AuthService
     public Optional<SimUser> loginByPhone(String phone, String password) {
