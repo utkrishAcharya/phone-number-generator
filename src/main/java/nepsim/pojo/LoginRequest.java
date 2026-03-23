@@ -9,6 +9,7 @@ public class LoginRequest {
     
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
     
+    
 public String getPassword() { return password; }
     
     
