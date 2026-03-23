@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data  // Generates getters & setters automatically
 @Document(collection = "simusers")
 public class SimUser {
+    
     @Id
     private String id;
     private String firstName;
