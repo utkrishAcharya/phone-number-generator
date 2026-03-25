@@ -107,7 +107,9 @@ public class SimUserService {
             return true;
         }
         return false;
+        
     }
+    
 
     public Optional<SimUser> findByCitizenshipNumber(String citizenshipNumber) {
         
