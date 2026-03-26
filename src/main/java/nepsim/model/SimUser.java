@@ -24,5 +24,4 @@ public class SimUser {
     private String simNumber;
     
     
-        
-       }
+          }
