@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "simusers")
 public class SimUser {
     
+    
     @Id
     private String id;
     private String firstName;
@@ -21,6 +22,7 @@ public class SimUser {
     private String birthPlace;
     private String password;
     private String simNumber;
+    
     
         
        }
