@@ -55,6 +55,7 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
 
         return userRepository.save(user);
+        
     }
     
 
