@@ -23,6 +23,7 @@ public class AuthService {
         
     this.passwordEncoder = new BCryptPasswordEncoder(); // BCrypt for secure passwords
         
+        
       }
 
     // Signup — hash password and save
