@@ -10,6 +10,7 @@ public class SignupRequest {
 
     @NotBlank(message = "Last name is required")
     private String lastName;
+    
 
     @NotBlank(message = "Citizenship number is required")
     private String citizenshipNumber;
