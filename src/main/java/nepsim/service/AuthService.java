@@ -15,6 +15,7 @@ public class AuthService {
     private final SimUserRepository userRepository;
     
     private final BCryptPasswordEncoder passwordEncoder;
+    
 
     @Autowired
     public AuthService(SimUserRepository userRepository) {
