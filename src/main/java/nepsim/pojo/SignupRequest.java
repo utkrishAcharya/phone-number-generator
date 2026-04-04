@@ -67,6 +67,7 @@ public class SignupRequest {
     
     public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
     
+    
 
     public String getBirthPlace() { return birthPlace; }
     
