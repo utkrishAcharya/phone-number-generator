@@ -22,6 +22,7 @@ public class SimUserService {
 
     // Signup
     public SimUser signup(SignupRequest req) {
+        
 
         // Hash password
         String hashedPass = passwordEncoder.encode(req.getPassword());
