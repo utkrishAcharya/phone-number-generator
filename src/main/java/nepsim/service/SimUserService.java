@@ -58,6 +58,7 @@ public class SimUserService {
         
 
         return repository.save(user);
+        
     }
 
     // Login — lookup by phone number and password
