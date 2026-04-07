@@ -25,6 +25,7 @@ public class SimUserService {
 
         // Hash password
         String hashedPass = passwordEncoder.encode(req.getPassword());
+        
 
         SimUser user = new SimUser();
         
