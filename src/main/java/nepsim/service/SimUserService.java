@@ -55,6 +55,7 @@ public class SimUserService {
         // Generate SIM number
         long number = 9000000000L + Math.abs(new Random().nextLong() % 1000000000L);
         user.setSimNumber("+977" + number);
+        
 
         return repository.save(user);
     }
