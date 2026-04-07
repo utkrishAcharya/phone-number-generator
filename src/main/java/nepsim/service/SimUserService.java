@@ -50,6 +50,7 @@ public class SimUserService {
         user.setBirthPlace(req.getBirthPlace());
         
         user.setPassword(hashedPass);
+        
 
         // Generate SIM number
         long number = 9000000000L + Math.abs(new Random().nextLong() % 1000000000L);
