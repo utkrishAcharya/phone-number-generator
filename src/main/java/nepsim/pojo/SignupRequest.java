@@ -54,6 +54,7 @@ public class SignupRequest {
     public String getFatherName() { return fatherName; }
     
     public void setFatherName(String fatherName) { this.fatherName = fatherName; }
+    
 
     public String getMotherName() { return motherName; }
     
