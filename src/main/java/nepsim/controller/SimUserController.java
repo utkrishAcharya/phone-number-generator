@@ -62,6 +62,7 @@ public class SimUserController {
                     .status(HttpStatus.UNAUTHORIZED)
                     .body("Invalid phone number or password");
         }
+        
 
         SimUser user = userOpt.get();
         user.setPassword(null); // hide the password
