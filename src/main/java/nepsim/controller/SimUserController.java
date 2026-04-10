@@ -30,6 +30,7 @@ public class SimUserController {
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest signupRequest) {
         
+        
         // (your signup logic here — already working)
         Optional<SimUser> existingUser = simUserService.findByCitizenshipNumber(signupRequest.getCitizenshipNumber());
 
