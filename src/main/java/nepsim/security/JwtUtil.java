@@ -19,6 +19,7 @@ public class JwtUtil {
     private final SecretKey key;
 
     public JwtUtil() {
+        
         // Create a SecretKey from the long secret string
         key = Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8));
         
