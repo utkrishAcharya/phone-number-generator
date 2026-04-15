@@ -11,6 +11,7 @@ import java.util.Date;
 
 @Component
 public class JwtUtil {
+    
 
     // Must be at least 256 bits for HS256
     private static final String SECRET = "ThisIsAReallyLongSecretKeyWithAtLeast32Bytes!1234";
