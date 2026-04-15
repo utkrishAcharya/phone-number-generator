@@ -19,6 +19,7 @@ public class JwtUtil {
     
 
     private final SecretKey key;
+    
 
     public JwtUtil() {
         
