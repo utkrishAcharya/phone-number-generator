@@ -66,6 +66,7 @@ public class SignupRequest {
     public String getPlace() { return place; }
     
     public void setPlace(String place) { this.place = place; }
+    
 
     public String getSpouse() { return spouse; }
     
