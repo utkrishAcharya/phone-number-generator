@@ -33,6 +33,7 @@ public class JwtUtil {
      * Generate a JWT token for the given user (subject)
      */
     public String generateToken(String subject) {
+        
         return Jwts.builder()
                 .setSubject(subject)
                 .setIssuedAt(new Date())
