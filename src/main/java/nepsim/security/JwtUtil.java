@@ -46,6 +46,7 @@ public class JwtUtil {
      * Extract subject (username/first name) from the token
      */
     public String extractUsername(String token) {
+        
         try {
             Claims claims = Jwts.parser()
                     .verifyWith(key)
