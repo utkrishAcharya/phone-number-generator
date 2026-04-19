@@ -42,6 +42,7 @@ public class JwtUtil {
                 .signWith(key)  // HS256 by default
                 .compact();
     }
+    
 
     /**
      * Extract subject (username/first name) from the token
