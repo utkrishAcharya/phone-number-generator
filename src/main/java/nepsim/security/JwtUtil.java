@@ -41,6 +41,7 @@ public class JwtUtil {
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
                 .signWith(key)  // HS256 by default
                 .compact();
+        
     }
     
 
