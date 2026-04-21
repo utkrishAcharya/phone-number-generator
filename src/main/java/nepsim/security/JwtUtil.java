@@ -75,6 +75,7 @@ public class JwtUtil {
     public boolean validateToken(String token) {
         
         try {
+            
             Claims claims = Jwts.parser()
                     .verifyWith(key)
                     .build()
