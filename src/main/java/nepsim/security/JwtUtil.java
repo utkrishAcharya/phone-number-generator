@@ -87,6 +87,7 @@ public class JwtUtil {
 
             Date expiration = claims.getExpiration();
             return expiration != null && expiration.after(new Date());
+            
         } catch (Exception e) {
             return false;
         }
