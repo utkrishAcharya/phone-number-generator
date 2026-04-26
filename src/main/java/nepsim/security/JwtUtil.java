@@ -37,6 +37,7 @@ public class JwtUtil {
     public String generateToken(String subject) {
         
         
+        
         return Jwts.builder()
                 .setSubject(subject)
                 .setIssuedAt(new Date())
