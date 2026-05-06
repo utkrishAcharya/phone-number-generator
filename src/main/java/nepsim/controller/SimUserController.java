@@ -21,6 +21,7 @@ public class SimUserController {
     
     private final SimUserService simUserService;
     
+    
    @Autowired
     public SimUserController(SimUserService simUserService) {
         
