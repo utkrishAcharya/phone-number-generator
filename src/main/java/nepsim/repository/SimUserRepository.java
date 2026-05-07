@@ -14,6 +14,7 @@ import java.util.Optional;
         
         
         
+        
    // Find user by citizenship number (unique, used for login)
     Optional<SimUser> findByCitizenshipNumber(String citizenshipNumber);
         
