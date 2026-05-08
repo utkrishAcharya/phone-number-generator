@@ -33,6 +33,7 @@ import java.util.Map;
      public ResponseEntity<List<SimUser>> getAllUsers() {
          
          
+         
         List<SimUser> users = simUserService.findAllUsers();
          
          
