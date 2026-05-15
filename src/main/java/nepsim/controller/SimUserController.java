@@ -71,6 +71,7 @@ public class SimUserController {
             
         if (userOpt.isEmpty()) {
             
+            
             return ResponseEntity
                     .status(HttpStatus.UNAUTHORIZED)
                     .body("Invalid phone number or password");
