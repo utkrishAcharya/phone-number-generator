@@ -89,6 +89,7 @@ public class SimUserController {
     @GetMapping
     public ResponseEntity<List<SimUser>> getAllUsers() {
         
+        
         List<SimUser> users = simUserService.findAllUsers();
         
         users.forEach(u -> u.setPassword(null));
