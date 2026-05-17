@@ -59,6 +59,7 @@ public class SimUserController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(Map.of("simNumber", newUser.getSimNumber()));
+        
     }
 
     // LOGIN — user login (by phone number + password)
