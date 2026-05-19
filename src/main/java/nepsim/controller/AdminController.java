@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-    
 @RequestMapping("/admin")
     public class AdminController {
         
