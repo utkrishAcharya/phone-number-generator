@@ -98,7 +98,5 @@ import java.util.Map;
 
         return ResponseEntity.ok(Map.of("message", "User deleted successfully"));
         
-        
-    }
-}
+         }}
 
