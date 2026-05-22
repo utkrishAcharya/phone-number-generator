@@ -47,6 +47,7 @@ public class SimUserController {
 
                 
         if (existingUser.isPresent()) {
+            
                 return ResponseEntity
                     .status(HttpStatus.CONFLICT)
                     .body(Map.of("message", "User already exists"));
