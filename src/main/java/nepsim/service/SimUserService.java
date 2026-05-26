@@ -65,6 +65,7 @@ public class SimUserService {
     // Login — lookup by phone number and password
     public Optional<SimUser> loginByPhone(String phone, String password) {
         
+        
         Optional<SimUser> userOpt = repository.findBySimNumber(phone);
 
         if (userOpt.isPresent() && userOpt.get().getPassword().equals(password)) {
