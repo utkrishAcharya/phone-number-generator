@@ -17,6 +17,7 @@ public class SimUserService {
 
     @Autowired
     private SimUserRepository repository;
+    
 
     private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
