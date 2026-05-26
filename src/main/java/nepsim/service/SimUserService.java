@@ -124,6 +124,7 @@ public class SimUserService {
 
     public Optional<SimUser> findByCitizenshipNumber(String citizenshipNumber) {
         
+        
         return Optional.empty();
         
     }}
