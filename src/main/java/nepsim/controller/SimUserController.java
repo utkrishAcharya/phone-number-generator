@@ -134,6 +134,7 @@ public class SimUserController {
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
                     .body(Map.of("message", "User not found"));
+            
         }
         updated.setPassword(null);
         return ResponseEntity.ok(updated);
