@@ -102,6 +102,8 @@ public class SimUserController {
         
         
         List<SimUser> users = simUserService.findAllUsers();
+
+        
         
         users.forEach(u -> u.setPassword(null));
         
