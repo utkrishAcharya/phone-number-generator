@@ -108,6 +108,7 @@ public class SimUserController {
         
         users.forEach(u -> u.setPassword(null));
         
+        
         return ResponseEntity.ok(users);
         
     }
