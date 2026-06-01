@@ -126,6 +126,7 @@ public class SimUserController {
             SimUser u = user.get();
             u.setPassword(null);
             return ResponseEntity.ok(u);
+            
         }
         
         return ResponseEntity
