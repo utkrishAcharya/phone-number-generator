@@ -137,6 +137,7 @@ public class SimUserController {
     // UPDATE user by ID
     @PutMapping("/{id}")
     public ResponseEntity<?> updateUser(
+        
             @PathVariable String id,
             @Valid @RequestBody SimUser simUser) {
         
