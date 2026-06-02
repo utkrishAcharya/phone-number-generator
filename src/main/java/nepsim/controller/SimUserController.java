@@ -121,6 +121,7 @@ public class SimUserController {
         
         Optional<SimUser> user = simUserService.findById(id);
         
+        
         if (user.isPresent()) {
             
             SimUser u = user.get();
