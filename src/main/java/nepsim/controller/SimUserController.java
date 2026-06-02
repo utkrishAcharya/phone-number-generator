@@ -125,6 +125,7 @@ public class SimUserController {
         
         if (user.isPresent()) {
             
+            
             SimUser u = user.get();
             u.setPassword(null);
             return ResponseEntity.ok(u);
