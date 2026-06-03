@@ -153,6 +153,7 @@ public class SimUserController {
                     .body(Map.of("message", "User not found"));
             
         }
+        
         updated.setPassword(null);
         return ResponseEntity.ok(updated);
     }
