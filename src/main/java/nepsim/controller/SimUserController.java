@@ -170,6 +170,7 @@ public class SimUserController {
                     .body(Map.of("message", "User not found"));
             
         }
+        
         return ResponseEntity.ok(Map.of("message", "User deleted successfully"));
              
         }}
