@@ -164,6 +164,7 @@ public class SimUserController {
     public ResponseEntity<?> deleteUser(@PathVariable String id) {
         
         boolean deleted = simUserService.deleteUser(id);
+        
         if (!deleted) {
             
             return ResponseEntity
