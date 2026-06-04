@@ -165,6 +165,7 @@ public class SimUserController {
         
         boolean deleted = simUserService.deleteUser(id);
         if (!deleted) {
+            
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
                     .body(Map.of("message", "User not found"));
