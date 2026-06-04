@@ -155,6 +155,7 @@ public class SimUserController {
         }
         
         updated.setPassword(null);
+        
         return ResponseEntity.ok(updated);
     }
     
