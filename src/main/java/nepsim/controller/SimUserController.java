@@ -148,6 +148,7 @@ public class SimUserController {
 
         SimUser updated = simUserService.updateUser(id, simUser);
         if (updated == null) {
+            
             return ResponseEntity
                     .status(HttpStatus.NOT_FOUND)
                     .body(Map.of("message", "User not found"));
