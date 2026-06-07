@@ -71,6 +71,7 @@ public class SignupRequest {
     public String getSpouse() { return spouse; }
     
     public void setSpouse(String spouse) { this.spouse = spouse; }
+    
 
     public String getDateOfBirth() { return dateOfBirth; }
     
