@@ -72,6 +72,7 @@ public class SimUserService {
             return userOpt;
             
         }
+        
         return Optional.empty();
     }
 
