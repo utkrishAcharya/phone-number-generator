@@ -81,6 +81,7 @@ public class SimUserService {
         
         
         return repository.findAll();
+        
     }
 
     public Optional<SimUser> findById(String id) {
