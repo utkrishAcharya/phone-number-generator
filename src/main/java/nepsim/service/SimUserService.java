@@ -79,6 +79,7 @@ public class SimUserService {
 
     public List<SimUser> findAllUsers() {
         
+        
         return repository.findAll();
     }
 
