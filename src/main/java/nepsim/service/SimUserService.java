@@ -96,6 +96,7 @@ public class SimUserService {
         
         
         Optional<SimUser> existing = repository.findById(id);
+        
         if (existing.isPresent()) {
             SimUser user = existing.get();
 
