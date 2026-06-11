@@ -116,6 +116,7 @@ public class SimUserService {
             // Hash new password if changed
             if (simUser.getPassword() != null && !simUser.getPassword().isEmpty()) {
                 
+                
                 user.setPassword(passwordEncoder.encode(simUser.getPassword()));
             }
 
