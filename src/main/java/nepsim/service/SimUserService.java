@@ -90,6 +90,7 @@ public class SimUserService {
         
         
         return repository.findById(id);
+        
     }
 
     public SimUser updateUser(String id, SimUser simUser) {
