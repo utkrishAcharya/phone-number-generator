@@ -133,6 +133,7 @@ public class SimUserService {
         if (repository.existsById(id)) {
             
             repository.deleteById(id);
+            
             return true;
             
         }
