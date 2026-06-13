@@ -131,6 +131,7 @@ public class SimUserService {
 
     public boolean deleteUser(String id) {
         
+        
         if (repository.existsById(id)) {
             
             repository.deleteById(id);
