@@ -14,9 +14,7 @@ import java.util.Optional;
     Optional<SimUser> findBySimNumber(String simNumber);
         
         
-        
-        
-   // Find user by citizenship number (unique, used for login)
+        // Find user by citizenship number (unique, used for login)
     Optional<SimUser> findByCitizenshipNumber(String citizenshipNumber);
         
         
