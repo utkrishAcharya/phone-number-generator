@@ -10,9 +10,7 @@ import java.util.Optional;
     public interface SimUserRepository extends MongoRepository<SimUser, String> {
         
         
-        
-        
-   // Find user by SIM number (unique)
+         // Find user by SIM number (unique)
     Optional<SimUser> findBySimNumber(String simNumber);
         
         
