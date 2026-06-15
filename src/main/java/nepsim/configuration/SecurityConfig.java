@@ -16,8 +16,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
                 
                 
-            
-                // permit all requests (so nothing requires authentication yet) 
+             // permit all requests (so nothing requires authentication yet) 
             .authorizeHttpRequests(auth -> auth
             .anyRequest().permitAll(); 
                                   );
