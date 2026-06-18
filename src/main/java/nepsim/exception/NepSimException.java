@@ -8,5 +8,4 @@ public class NepSimException extends Exception {
         
          super(message);
         
-        
-    }}
+         }}
