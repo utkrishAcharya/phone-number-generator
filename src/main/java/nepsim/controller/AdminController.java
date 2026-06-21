@@ -20,8 +20,7 @@ import java.util.Map;
     public AdminController(SimUserService simUserService) {
         
         
-        
-        this.simUserService = simUserService;
+         this.simUserService = simUserService;
         
         
     }
