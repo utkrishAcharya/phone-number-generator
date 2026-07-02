@@ -12,7 +12,6 @@ import java.util.Map;
 @RequestMapping("/admin")
     public class AdminController {
         
-        
         private final SimUserService simUserService;
         
 
