@@ -12,8 +12,7 @@ public class SignupRequest {
    @NotBlank(message = "Citizenship number is required")
     private String citizenshipNumber;
     
-
-    @NotBlank(message = "Password is required")
+   @NotBlank(message = "Password is required")
     private String password;
    private String fatherName;
     private String motherName;
