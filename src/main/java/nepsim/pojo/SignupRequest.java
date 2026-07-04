@@ -40,7 +40,6 @@ public class SignupRequest {
     public void setCitizenshipNumber(String citizenshipNumber) { this.citizenshipNumber = citizenshipNumber; }
     
     
-
     public String getPassword() { return password; }
     
     public void setPassword(String password) { this.password = password; }
