@@ -12,7 +12,6 @@ public class GlobalExceptionHandler extends Exception{
     public ResponseEntity<String> handleException(Exception ex) {
          ex.printStackTrace(); // logs the real error in console
         
-        
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
              .body("Server error: " + ex.getMessage());
 
