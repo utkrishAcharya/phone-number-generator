@@ -17,7 +17,6 @@ import java.util.Optional;
 @RequestMapping("/api/simusers")
 public class SimUserController {
     
-    
     private final SimUserService simUserService;
     
     
