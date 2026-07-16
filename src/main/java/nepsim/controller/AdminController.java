@@ -70,8 +70,7 @@ import java.util.Map;
             
             return ResponseEntity
                 
-                
-                    .status(HttpStatus.NOT_FOUND)
+                .status(HttpStatus.NOT_FOUND)
                 .body(Map.of("message", "User not found"));
             
             }
