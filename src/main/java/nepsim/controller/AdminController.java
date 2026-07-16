@@ -45,8 +45,7 @@ import java.util.Map;
         
    if (updated == null) {
             
-            
-        // Return 404 if not found
+             // Return 404 if not found
              return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                     .body(Map.of("message", "User not found"));
