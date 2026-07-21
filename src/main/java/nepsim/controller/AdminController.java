@@ -19,8 +19,7 @@ import java.util.Map;
         
          this.simUserService = simUserService;
         
-        
-    }
+        }
         
 
     // Get all users (admin only)
