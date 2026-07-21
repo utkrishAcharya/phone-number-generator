@@ -21,8 +21,7 @@ import java.util.Map;
         
         }
         
-
-    // Get all users (admin only)
+ // Get all users (admin only)
      @GetMapping("/users")
      public ResponseEntity<List<SimUser>> getAllUsers() {
          
