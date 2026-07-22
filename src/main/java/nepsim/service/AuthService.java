@@ -18,7 +18,6 @@ public class AuthService {
     public AuthService(SimUserRepository userRepository) {
         
     this.userRepository = userRepository;
-        
     this.passwordEncoder = new BCryptPasswordEncoder(); // BCrypt for secure passwords
         
         
