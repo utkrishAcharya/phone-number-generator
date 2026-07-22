@@ -12,8 +12,7 @@ import java.util.Optional;
 public class AuthService {
 
     private final SimUserRepository userRepository;
-    
-    private final BCryptPasswordEncoder passwordEncoder;
+     private final BCryptPasswordEncoder passwordEncoder;
     
 
     @Autowired
