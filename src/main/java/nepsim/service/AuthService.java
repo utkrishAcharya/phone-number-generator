@@ -27,7 +27,6 @@ public class AuthService {
     // Signup — hash password and save
     public SimUser signup(SignupRequest signupRequest) {
         
-
         SimUser user = new SimUser();
         
 
