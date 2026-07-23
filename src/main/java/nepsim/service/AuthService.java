@@ -68,8 +68,7 @@ public class AuthService {
             
                 passwordEncoder.matches(password, userOpt.get().getPassword())) {
             
-            
-            return userOpt;
+             return userOpt;
             
         }
         
