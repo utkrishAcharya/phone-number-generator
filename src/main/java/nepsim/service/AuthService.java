@@ -29,8 +29,7 @@ public class AuthService {
         
         SimUser user = new SimUser();
         
-
-        user.setFirstName(signupRequest.getFirstName());
+       user.setFirstName(signupRequest.getFirstName());
         
         user.setLastName(signupRequest.getLastName());
         
