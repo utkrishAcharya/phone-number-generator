@@ -51,8 +51,7 @@ public class AuthService {
         // Hash (encrypt) password and store
         user.setPassword(passwordEncoder.encode(signupRequest.getPassword()));
         
-
-        return userRepository.save(user);
+       return userRepository.save(user);
         
     }
     
