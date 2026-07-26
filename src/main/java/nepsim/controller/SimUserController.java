@@ -95,7 +95,6 @@ public class SimUserController {
     public ResponseEntity<List<SimUser>> getAllUsers() {
         
         
-        
         List<SimUser> users = simUserService.findAllUsers();
 
         
