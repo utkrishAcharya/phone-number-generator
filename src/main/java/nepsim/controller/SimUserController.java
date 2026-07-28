@@ -148,8 +148,7 @@ public class SimUserController {
         return ResponseEntity.ok(updated);
     }
     
-
-    // DELETE user by ID
+ // DELETE user by ID
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteUser(@PathVariable String id) {
         
