@@ -47,8 +47,7 @@ public class SimUserController {
 
         SimUser newUser = simUserService.signup(signupRequest);
         
-        
-        return ResponseEntity
+         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(Map.of("simNumber", newUser.getSimNumber()));
         
