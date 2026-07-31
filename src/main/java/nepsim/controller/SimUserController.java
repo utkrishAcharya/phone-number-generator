@@ -44,8 +44,7 @@ public class SimUserController {
             
              }
         
-
-        SimUser newUser = simUserService.signup(signupRequest);
+     SimUser newUser = simUserService.signup(signupRequest);
         
          return ResponseEntity
                 .status(HttpStatus.CREATED)
