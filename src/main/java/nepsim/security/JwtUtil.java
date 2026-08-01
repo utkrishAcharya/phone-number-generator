@@ -12,8 +12,7 @@ import java.util.Date;
 @Component
 public class JwtUtil {
     
-
-    // Must be at least 256 bits for HS256
+// Must be at least 256 bits for HS256
     private static final String SECRET = "ThisIsAReallyLongSecretKeyWithAtLeast32Bytes!1234";
     private static final long EXPIRATION_TIME = 1000L * 60 * 60 * 24; // 24 hours
     
