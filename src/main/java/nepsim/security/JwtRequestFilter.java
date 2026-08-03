@@ -26,8 +26,7 @@ private final JwtUtil jwtUtil;
                                     HttpServletResponse response,
                                     FilterChain chain) throws IOException, jakarta.servlet.ServletException {
         
-        
-      String authHeader = request.getHeader("Authorization");
+        String authHeader = request.getHeader("Authorization");
         
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
