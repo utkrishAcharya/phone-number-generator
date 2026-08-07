@@ -23,8 +23,7 @@ public JwtUtil() {
         
               }
     
-
-    /**
+     /**
      * Generate a JWT token for the given user (subject)
      */
     public String generateToken(String subject) {
