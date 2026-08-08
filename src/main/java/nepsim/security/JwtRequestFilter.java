@@ -40,6 +40,7 @@ private final JwtUtil jwtUtil;
                         new UsernamePasswordAuthenticationToken(username, null, Collections.emptyList());
                 
                  auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                
                  SecurityContextHolder.getContext().setAuthentication(auth);
                 
                  }}
