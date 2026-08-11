@@ -55,7 +55,6 @@ public class SignupRequest {
     
     public void setSpouse(String spouse) { this.spouse = spouse; }
     
-
     public String getDateOfBirth() { return dateOfBirth; }
     
     public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
