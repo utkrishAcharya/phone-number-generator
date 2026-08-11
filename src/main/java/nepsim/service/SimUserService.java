@@ -13,8 +13,7 @@ import java.util.Random;
 @Service
 public class SimUserService {
     
-
-    @Autowired
+   @Autowired
     private SimUserRepository repository;
     
 
