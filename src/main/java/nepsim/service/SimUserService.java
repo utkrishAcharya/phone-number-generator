@@ -16,8 +16,7 @@ public class SimUserService {
 @Autowired
 private SimUserRepository repository;
     
-
-    private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     // Signup
     public SimUser signup(SignupRequest req) {
