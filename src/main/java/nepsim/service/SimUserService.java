@@ -76,8 +76,7 @@ private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         
     }
 
-
-    public List<SimUser> findAllUsers() {
+ public List<SimUser> findAllUsers() {
         
         
         return repository.findAll();
