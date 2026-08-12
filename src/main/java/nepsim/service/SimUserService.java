@@ -27,7 +27,6 @@ private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
         SimUser user = new SimUser();
         
-        
         user.setFirstName(req.getFirstName());
         
         user.setLastName(req.getLastName());
