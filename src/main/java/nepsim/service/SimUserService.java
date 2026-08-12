@@ -21,8 +21,7 @@ private final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     // Signup
     public SimUser signup(SignupRequest req) {
         
-
-        // Hash password
+       // Hash password
         String hashedPass = passwordEncoder.encode(req.getPassword());
         
 
