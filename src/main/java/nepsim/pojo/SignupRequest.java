@@ -60,8 +60,7 @@ public class SignupRequest {
     
     public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
     
-    
-     public String getBirthPlace() { return birthPlace; }
+    public String getBirthPlace() { return birthPlace; }
     
     public void setBirthPlace(String birthPlace) { this.birthPlace = birthPlace; }
     
