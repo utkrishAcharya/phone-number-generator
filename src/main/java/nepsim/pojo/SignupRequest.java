@@ -1,5 +1,4 @@
 package nepsim.pojo;
-
 import jakarta.validation.constraints.NotBlank;
 
 public class SignupRequest {
