@@ -42,6 +42,7 @@ public class SignupRequest {
     
     public void setPassword(String password) { this.password = password; }
     
+    
      public String getFatherName() { return fatherName; }
     
     public void setFatherName(String fatherName) { this.fatherName = fatherName; }
