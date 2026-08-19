@@ -61,8 +61,7 @@ public class AuthService {
         
         Optional<SimUser> userOpt = userRepository.findBySimNumber(phone);
         
-
-        if (userOpt.isPresent() &&
+ if (userOpt.isPresent() &&
             
              passwordEncoder.matches(password, userOpt.get().getPassword())) {
             
