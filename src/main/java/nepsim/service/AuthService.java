@@ -64,8 +64,7 @@ public class AuthService {
 
         if (userOpt.isPresent() &&
             
-            
-                passwordEncoder.matches(password, userOpt.get().getPassword())) {
+             passwordEncoder.matches(password, userOpt.get().getPassword())) {
             
              return userOpt;
             
