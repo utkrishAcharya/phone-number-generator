@@ -34,6 +34,7 @@ private final JwtUtil jwtUtil;
             
             if (jwtUtil.validateToken(token)) {
                 
+                
                 String username = jwtUtil.extractUsername(token);
                 
                  UsernamePasswordAuthenticationToken auth =
