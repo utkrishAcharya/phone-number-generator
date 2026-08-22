@@ -52,6 +52,7 @@ public class SignupRequest {
     
     public void setMotherName(String motherName) { this.motherName = motherName; }
     
+    
     public String getPlace() { return place; }
     
     public void setPlace(String place) { this.place = place; }
