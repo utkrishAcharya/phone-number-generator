@@ -13,7 +13,6 @@ import java.util.Map;
     public class AdminController {
 
         
-        
         private final SimUserService simUserService;
         
     @Autowired
