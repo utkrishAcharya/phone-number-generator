@@ -109,8 +109,7 @@ public class SimUserController {
             
         }
         
-        
-        return ResponseEntity
+         return ResponseEntity
                 .status(HttpStatus.NOT_FOUND)
                 .body(Map.of("message", "User not found"));
     }
