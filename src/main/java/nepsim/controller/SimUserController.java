@@ -1,5 +1,4 @@
 package nepsim.controller;
-
 import nepsim.model.SimUser;
 import nepsim.pojo.LoginRequest;
 import nepsim.pojo.SignupRequest;
