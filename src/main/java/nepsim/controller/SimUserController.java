@@ -48,7 +48,8 @@ public class SimUserController {
                 .status(HttpStatus.CREATED)
                 .body(Map.of("simNumber", newUser.getSimNumber()));
         
-    }
+        
+         }
 
     // LOGIN — user login (by phone number + password)
      @PostMapping("/login")
