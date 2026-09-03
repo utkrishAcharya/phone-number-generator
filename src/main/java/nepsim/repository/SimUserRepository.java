@@ -16,5 +16,4 @@ import java.util.Optional;
           // Optionally find by first name (not unique — use carefully)
     Optional<SimUser> findByFirstName(String firstName);
         
-        
-          }
+              }
