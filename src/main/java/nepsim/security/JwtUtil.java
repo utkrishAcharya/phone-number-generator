@@ -31,8 +31,7 @@ public JwtUtil() {
     public String generateToken(String subject) {
         
         
-        
-        return Jwts.builder()
+           return Jwts.builder()
                 .setSubject(subject)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
