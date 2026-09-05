@@ -37,6 +37,7 @@ public class SimUserController {
          // (your signup logic here — already working)
         Optional<SimUser> existingUser = simUserService.findByCitizenshipNumber(signupRequest.getCitizenshipNumber());
         
+        
         if (existingUser.isPresent()) {
             
                 return ResponseEntity
