@@ -37,6 +37,7 @@ import java.util.Map;
     @PutMapping("/users/{id}")
     public ResponseEntity<?> updateUser(@PathVariable String id,
                                         
+                                        
      @RequestBody SimUser simUser) {
         
         
