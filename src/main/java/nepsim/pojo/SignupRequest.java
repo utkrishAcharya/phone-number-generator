@@ -7,7 +7,7 @@ public class SignupRequest {
     private String firstName;
     
   @NotBlank(message = "Last name is required")
-    private String lastName;
+private String lastName;
     
    @NotBlank(message = "Citizenship number is required")
     private String citizenshipNumber;
