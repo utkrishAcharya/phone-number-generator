@@ -14,7 +14,7 @@ import java.util.Optional;
     Optional<SimUser> findByCitizenshipNumber(String citizenshipNumber);
         
         
-          // Optionally find by first name (not unique — use carefully)
+     // Optionally find by first name (not unique — use carefully)
     Optional<SimUser> findByFirstName(String firstName);
         
         
