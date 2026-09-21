@@ -67,6 +67,4 @@ public class SignupRequest {
     
     public void setBirthPlace(String birthPlace) { this.birthPlace = birthPlace; }
     
-    
-                }
-
+        }
