@@ -47,8 +47,7 @@ public JwtUtil() {
         
         try {
             
-            
-            Claims claims = Jwts.parser()
+               Claims claims = Jwts.parser()
                     .verifyWith(key)
                     .build()
                     .parseSignedClaims(token)
