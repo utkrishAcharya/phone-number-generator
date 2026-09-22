@@ -36,7 +36,7 @@ public JwtUtil() {
                 .signWith(key)  // HS256 by default
                 .compact();
         
-        }
+             }
     
 
     /**
