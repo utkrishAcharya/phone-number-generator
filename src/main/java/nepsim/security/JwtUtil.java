@@ -16,7 +16,6 @@ public class JwtUtil {
     private static final long EXPIRATION_TIME = 1000L * 60 * 60 * 24; // 24 hours
     
  private final SecretKey key;
-    
 public JwtUtil() {
         
          // Create a SecretKey from the long secret string
