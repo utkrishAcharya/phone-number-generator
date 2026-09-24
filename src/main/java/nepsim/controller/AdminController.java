@@ -59,8 +59,7 @@ import java.util.Map;
         
         boolean deleted = simUserService.deleteUser(id);
         
-        
-          if (!deleted) {
+        if (!deleted) {
             
             return ResponseEntity
                 
