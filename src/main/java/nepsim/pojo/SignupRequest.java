@@ -29,7 +29,6 @@ public class SignupRequest {
    public String getLastName() { return lastName; }
    public void setLastName(String lastName) { this.lastName = lastName; }
     
-    
     public String getCitizenshipNumber() { return citizenshipNumber; }
     public void setCitizenshipNumber(String citizenshipNumber) { this.citizenshipNumber = citizenshipNumber; }
     
