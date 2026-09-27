@@ -3,7 +3,6 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-
 @Data  // Generates getters & setters automatically
 @Document(collection = "simusers")
 public class SimUser {
