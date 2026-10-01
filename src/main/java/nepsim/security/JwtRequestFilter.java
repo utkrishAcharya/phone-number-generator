@@ -45,7 +45,6 @@ private final JwtUtil jwtUtil;
                 
                  auth.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 
-                
                  SecurityContextHolder.getContext().setAuthentication(auth);
                 
                      }}
