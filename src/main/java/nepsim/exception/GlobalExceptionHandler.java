@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler extends Exception{
     
-     @ExceptionHandler(Exception.class)
+@ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception ex) {
         
          ex.printStackTrace(); // logs the real error in console
