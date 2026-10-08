@@ -62,7 +62,8 @@ import java.util.Map;
     boolean deleted = simUserService.deleteUser(id);
         
         if (!deleted) {
-
+\
+            
             return ResponseEntity
                 
                 .status(HttpStatus.NOT_FOUND)
