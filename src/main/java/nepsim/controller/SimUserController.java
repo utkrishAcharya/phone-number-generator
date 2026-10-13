@@ -21,8 +21,7 @@ public class SimUserController {
     
     @Autowired
     public SimUserController(SimUserService simUserService) {
-        
-        this.simUserService = simUserService;
+       this.simUserService = simUserService;
         
            }
     
