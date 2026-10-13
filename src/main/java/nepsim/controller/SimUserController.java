@@ -25,8 +25,7 @@ public class SimUserController {
         
            }
     
-
-    // SIGNUP — new user
+ // SIGNUP — new user
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@Valid @RequestBody SignupRequest signupRequest) {
         
