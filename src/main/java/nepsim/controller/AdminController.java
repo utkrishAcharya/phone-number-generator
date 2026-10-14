@@ -39,7 +39,6 @@ import java.util.Map;
                                         
     @RequestBody SimUser simUser) {
         
-        
     SimUser updated = simUserService.updateUser(id, simUser); 
         
    if (updated == null) {
