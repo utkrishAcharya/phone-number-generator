@@ -74,6 +74,7 @@ public class SimUserController {
         SimUser user = userOpt.get();
         user.setPassword(null); // hide the password
         
+        
         return ResponseEntity.ok(user);
         
         
