@@ -24,6 +24,7 @@ public class SimUserController {
     public SimUserController(SimUserService simUserService) {
        this.simUserService = simUserService;
         
+        
            }
     
     
