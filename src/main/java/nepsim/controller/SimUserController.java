@@ -102,6 +102,7 @@ public class SimUserController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable String id) {
         
+        
         Optional<SimUser> user = simUserService.findById(id);
         
         
