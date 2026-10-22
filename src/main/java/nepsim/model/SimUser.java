@@ -20,5 +20,5 @@ public class SimUser {
     private String birthPlace;
     private String password;
     private String simNumber;
-    
+      
      }
