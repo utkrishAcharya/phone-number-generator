@@ -63,6 +63,7 @@ import java.util.Map;
     public ResponseEntity<?> deleteUser(@PathVariable String id) {
         
         boolean deleted = simUserService.deleteUser(id);
+
         
           if (!deleted) {
 
