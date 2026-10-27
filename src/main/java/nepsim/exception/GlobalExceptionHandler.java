@@ -18,6 +18,5 @@ public class GlobalExceptionHandler extends Exception{
              .body("Server error: " + ex.getMessage());
         
         
-        
-             }}
+                }}
     
