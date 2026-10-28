@@ -32,6 +32,7 @@ private final JwtUtil jwtUtil;
         
   if (authHeader != null && authHeader.startsWith("Bearer ")) {
       
+      
         String token = authHeader.substring(7);
       
             
