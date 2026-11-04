@@ -69,6 +69,7 @@ import java.util.Map;
           if (!deleted) {
 
                return ResponseEntity
+                   
                 .status(HttpStatus.NOT_FOUND)
                 .body(Map.of("message", "User not found"));
 
