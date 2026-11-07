@@ -38,6 +38,7 @@ public class SimUserController {
         
         
          if (existingUser.isPresent()) {
+             
             
                 return ResponseEntity
                     .status(HttpStatus.CONFLICT)
