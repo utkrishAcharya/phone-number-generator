@@ -136,6 +136,7 @@ public class SimUserController {
                     .status(HttpStatus.NOT_FOUND)
                     .body(Map.of("message", "User not found"));
             
+            
         }
         
         updated.setPassword(null);
