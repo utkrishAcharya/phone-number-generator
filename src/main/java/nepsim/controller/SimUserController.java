@@ -46,6 +46,7 @@ public class SimUserController {
                     .status(HttpStatus.CONFLICT)
                     .body(Map.of("message", "User already exists"));
              
+             
             
                    }
         
