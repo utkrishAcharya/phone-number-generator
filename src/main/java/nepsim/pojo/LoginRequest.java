@@ -1,6 +1,5 @@
 package nepsim.pojo;
 
-
 public class LoginRequest {
     
     private String phoneNumber;
