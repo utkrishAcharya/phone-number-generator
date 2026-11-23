@@ -39,8 +39,7 @@ import java.util.Map;
         
     SimUser updated = simUserService.updateUser(id, simUser); 
         
-        
-   if (updated == null) {
+        if (updated == null) {
        
             // Return 404 if not found
              return ResponseEntity
