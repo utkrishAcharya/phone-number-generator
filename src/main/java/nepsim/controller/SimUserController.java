@@ -19,7 +19,7 @@ public class SimUserController {
 
     
     
-    private final SimUserService simUserService;
+private final SimUserService simUserService;
 
     
     @Autowired
