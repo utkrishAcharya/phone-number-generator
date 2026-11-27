@@ -32,8 +32,7 @@ import java.util.Map;
          
           }
         
-        
-     // Update specific user
+    // Update specific user
     @PutMapping("/users/{id}")
     public ResponseEntity<?> updateUser(@PathVariable String id,
 
